@@ -11,8 +11,15 @@ namespace LINQ
         static void Main(string[] args)
         {
             ZipExp1();
+            Console.WriteLine();
             ZipExp2();
+            Console.WriteLine();
             ZipExp3();
+            Console.WriteLine();
+            ZipExp4();
+            Console.WriteLine();
+            ZipExp5();
+            Console.WriteLine();
         }
 
         static void ZipExp1()
@@ -40,6 +47,25 @@ namespace LINQ
             var q = letters.Zip(numbers, (l, n) => l + n.ToString());
             foreach (var s in q)
                 Console.Write(s + " ");//A1 B2 C3
+        }
+
+        static void ZipExp4()
+        {
+            var letters = new string[] { "A", "B", "C", "D", "E" };
+            var numbers = new int[] { 1, 2, 3 };
+            var q = letters.Skip(letters.Length - numbers.Length).Zip(numbers, (l, n) => l + n.ToString());
+            foreach (var s in q)
+                Console.Write(s + " ");//C1 D2 E3
+        }
+
+        static void ZipExp5()
+        {
+            var letters = new string[] { "A", "B", "C", "D", "E" };
+            var numbers = new int[] { 1, 2, 3 };
+            Array.Resize(ref numbers, letters.Length);
+            var q = letters.Zip(numbers, (l, n) => l + n.ToString());
+            foreach (var s in q)
+                Console.Write(s + " ");//C1 D2 E3
         }
     }
 }
