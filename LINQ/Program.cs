@@ -10,7 +10,8 @@ namespace LINQ
     {
         static void Main(string[] args)
         {
-         
+            Console.WriteLine("{0:N}", Int64.MaxValue);
+            Console.WriteLine("{0:N1}", Int64.MaxValue);
         }
     }
 }
